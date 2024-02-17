@@ -11,21 +11,21 @@
             <img src="../src/assets/user-icon.svg" alt="image of a form" id="form-svg">
         </header>
         <div id="main">
-            <form action="#" method="GET">
+            <form id="form" action="#" method="GET">
                 <fieldset id="personal-info">
                     <legend>Personal</legend>
                     <div class="same-row">
                         <div class="field-container">
                             <label for="first-name">First name</label>
-                            <input type="text" id="first-name" required/>
+                            <input type="text" id="first-name" pattern="[a-zA-Z]{2,16}" required/>
                         </div>
                         <div class="field-container">
                             <label for="middle-initial">MI</label>
-                            <input type="text" id="middle-initial" maxlength="2">
+                            <input type="text" id="middle-initial" pattern="[a-zA-Z]" maxlength="2">
                         </div>
                         <div class="field-container">
                             <label for="last-name">Last name</label>
-                            <input type="text" id="last-name" required>
+                            <input type="text" id="last-name" pattern="[a-zA-Z]{2,16}" required>
                         </div>
                     </div>
                     <div class="field-container">
@@ -37,35 +37,35 @@
                     <legend>Contact</legend>
                     <div class="field-container">
                         <label for="phone">Phone</label>
-                        <input type="number" id="phone" required>
+                        <input type="phone" id="phone" minlength="10" maxlength="16" required>
                     </div>
                     <div class="field-container">
                         <label for="address-first">Address</label>
-                        <input type="text" id="address-first" required>
+                        <input type="text" id="address-first" pattern="^(?=\S*\s)(?=[^a-zA-Z]*[a-zA-Z])(?=\D*\d)[a-zA-Z\d\s',.#/-]*$" required>
                     </div>
                     <div class="field-container">
-                        <label for="address-second">Address 2 (optional)</label>
+                        <label for="address-second" pattern="^(?=\S*\s)(?=[^a-zA-Z]*[a-zA-Z])(?=\D*\d)[a-zA-Z\d\s',.#/-]*$">Address 2 (optional)</label>
                         <input type="text" id="address-second">
                     </div>
                     <div class="same-row">
                         <div class="field-container">
                             <label for="zip-code">Zip Code</label>
-                            <input type="number" id="zip-code" required>
+                            <input type="text" id="zip-code" pattern="[0-9]{5}" maxlength="5" required>
                         </div>
                         <div class="field-container">
                             <label for="city">City</label>
-                            <input type="text" id="city" required>
+                            <input type="text" id="city" pattern="[a-zA-Z]+{2,20}" required>
                         </div>
                         <div class="field-container">
                             <label for="state">State</label>
-                            <input list="states-list" id="state">
+                            <input list="states-list" id="state" pattern="[a-zA-Z]{2}" maxlength="2" required>
                             <datalist id="states-list">
                                 <!-- Inserted by JS -->
                             </datalist>
                         </div>
                     </div>
                 </fieldset>
-                <input type="submit">
+                <input type="submit" id="submit-btn">
             </form>
         </div>
         <script src="bundle.js"></script>

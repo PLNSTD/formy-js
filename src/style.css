@@ -38,6 +38,7 @@ form {
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    transform: height 200ms ease-in-out;
 }
 
 fieldset {
@@ -111,4 +112,16 @@ input[type="submit"]:hover {
     color: rgba(0, 26, 255, 1);
     border: 2px solid rgba(0, 26, 255, 0.9);
     transition: all 100ms ease-in-out;
+}
+
+.submitted fieldset input:not(:focus):invalid {
+    border: 2px solid red;
+}
+
+.submitted fieldset input:not(:focus):required:valid {
+    border: 2px solid green;
+}
+
+.correct-message {
+    font-weight: 900;
 }
